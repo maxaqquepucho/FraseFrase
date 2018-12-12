@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/cuadritos.css"> -->
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/animates.css">
+    <link rel="stylesheet" href="css/animatedLetter.css">
+</head>
+
+
+<body>
+
+    <div class="loarder-container">
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    
+    </div>
+
+    <div id="table">
+        <div id="centeralign">
+            <h1 id="h1-1-animado">
+                <span class="ocultarElemento" >Hola quetal,</span>
+                <span class="ocultarElemento" >yo sere tu guia :)</span>
+            </h1>
+            <p>Bueno me presentare, me llamo Panded\</p>
+        </div>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <script>
+
+        let d = document
+        let loading = document.querySelector('.loarder-container');
+        setTimeout(() => {
+            loading.classList.add('fadeOutUp', 'animated')
+            var titulo1 = d.querySelector('#h1-1-animado')         
+            
+
+            setTimeout(() => {
+                loading.style.display = 'none'
+
+                var speed = 80;
+                // var delay = $('#h1-1-animado').text().length * speed + speed;
+                
+                let delayH1 = titulo1.textContent.length * speed + speed;
+
+                typeEffect(titulo1.children[0], speed);
+
+                setTimeout(() => {
+                    typeEffect(titulo1.children[1], speed);
+                        setTimeout(function () {
+                            $('p').css('display', 'inline-block');
+                            typeEffect($('p'), speed);
+                        }, delay+2000);
+                    
+                }, delayH1 +1500);
+
+
+
+            }, 1500);
+        }, 4000);
+
+        function typeEffect(element, speed) {
+                var text = $(element).text();
+                $(element).html('');
+
+                var i = 0;
+                var timer = setInterval(function () {
+                    if (i < text.length) {
+                        $(element).append(text.charAt(i));
+                        i++;
+                    } else {
+                        clearInterval(timer);
+                    }
+                }, speed);
+            }
+
+          
+
+
+    </script>
+<!-- https://codepen.io/pizza3/pen/qmerBv -->
+<!-- https://codepen.io/timrijkse/pen/ALgZpp -->
+<!-- https://codepen.io/marcelo-ribeiro/pen/xOOKpO -->
+
+</body>
+</html>
