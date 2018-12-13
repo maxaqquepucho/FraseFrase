@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/loading.css">
     <link rel="stylesheet" href="css/animates.css">
     <link rel="stylesheet" href="css/animatedLetter.css">
+    <link rel="stylesheet" href="css/buttonEffect.css">
 </head>
 
 
@@ -29,12 +30,28 @@
     <div id="table">
         <div id="centeralign">
             <h1 id="h1-1-animado">
-                <span class="ocultarElemento" >Hola quetal,</span>
-                <span class="ocultarElemento" >yo sere tu guia :)</span>
+               Hola quetal, yo sere tu guia :)
             </h1>
-            <p>Bueno me presentare, me llamo Panded\</p>
+            <p id="primerParrafo">Bueno me presentare, me llamo Panded y soy alguien muy divertido, al menos eso creo jaja :v ... Fui programado exactamente para hacer esta tarea,
+                 lo cual es no aburrirte y solo espero que tengas una sorriza. </p>
+            <p id="segundoParrafo">
+                Bien ahora comenzaremos con un recorrido para llenar de colores a tu ojos. Muy probablemente me vuelvas a ver durante tu recorrido,
+                pues parace que estoy hablando de mas..  asi que comencemos! :) 
+            </p>
         </div>
+        <div class=" row-xGrid-yMiddle">
+            <div id="btnSiguiente" class="row-xGrid iso-standard" style=" margin-top: 26px;">
+                
+        
+            </div>
+        
+        </div>
+        
     </div>
+
+
+    
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -46,32 +63,45 @@
         let loading = document.querySelector('.loarder-container');
         setTimeout(() => {
             loading.classList.add('fadeOutUp', 'animated')
-            var titulo1 = d.querySelector('#h1-1-animado')         
+            var titulo1 = d.querySelector('#h1-1-animado') 
+            let primerParrafo = d.querySelector('#primerParrafo')
+            let segundoParrafo = d.querySelector('#segundoParrafo')
+
+            var speed = 80;
+            var delay = titulo1.textContent.length * speed + speed;
+            setTimeout(() => {
+                let btnSiguiente = d.querySelector('#btnSiguiente')
+                btnSiguiente.innerHTML = `<button id="btnSiguiente" class="ctrl-standard typ-subhed fx-bubbleDown animated fadeInLeft">Sigamos</button>`
+                btnSiguiente.children[0].addEventListener('click', () => {
+                    setTimeout(() => {
+                        window.location.replace("/vue")
+                        
+                    }, 1000);
+                })
+
+            }, 2000);
+
             
 
-            setTimeout(() => {
-                loading.style.display = 'none'
-
-                var speed = 80;
-                // var delay = $('#h1-1-animado').text().length * speed + speed;
-                
-                let delayH1 = titulo1.textContent.length * speed + speed;
-
-                typeEffect(titulo1.children[0], speed);
+            let delay2 = 
+            typeEffect(titulo1, speed);
+            setTimeout(function () {
+                $('#primerParrafo').css('display', 'inline-block');
+                typeEffect($('#primerParrafo'), speed);
 
                 setTimeout(() => {
-                    typeEffect(titulo1.children[1], speed);
-                        setTimeout(function () {
-                            $('p').css('display', 'inline-block');
-                            typeEffect($('p'), speed);
-                        }, delay+2000);
+                     $('#segundoParrafo').css('display', 'inline-block');
+                    typeEffect($('#segundoParrafo'), speed);
+
                     
-                }, delayH1 +1500);
 
+                }, delay + 2000 + (primerParrafo.textContent.length*speed + speed) + 11000);
+            }, delay +2000);        
+            
 
-
-            }, 1500);
+           
         }, 4000);
+
 
         function typeEffect(element, speed) {
                 var text = $(element).text();
@@ -87,6 +117,16 @@
                     }
                 }, speed);
             }
+
+            $(document).ready(function () {
+              
+            });
+
+
+
+
+
+       
 
           
 
