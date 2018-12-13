@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Ubuntu:bold' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   
       <link rel="stylesheet" href="css/style.css">
 
@@ -19,7 +19,15 @@
 <div id="app">
 	
 	<component :is="state.view">
-		<h1>{{ state.view }}</h1>
+
+		<!-- <h1 v-if="ok">Yes</h1> -->
+		<p v-if=" state.view  == 'fade'">{{ state.fFade }} </p>
+		<h6 class="primero" v-if=" state.view  == 'slide'">{{ state.fSlide }} </h6>
+		<h6 v-if=" state.view  == 'slideUp'">{{ state.fSlideUp }} </h6>
+		<p v-if=" state.view  == 'zoom'">{{ state.fFlipX}} </p>
+		<p v-if=" state.view  == 'flipX'">{{ state.fFlipX }} </p>
+		<h3 class ="fraseFrase"  v-if="state.view  == 'flipY'" >{{ state.frase }} </h3>
+		
 	</component>
 	<controls></controls>
 </div>

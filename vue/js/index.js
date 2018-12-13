@@ -3,7 +3,13 @@
 // State
 var state = {
 	animations: ['fade', 'slide', 'slideUp', 'zoom', 'flipX', 'flipY'],
-	view: 'slide'
+	view: 'slide',
+	frase: 'El amor es un poder, requiere paciencia. Puede hacerte daño o hacer cosas increíbles',
+	fFade: 'Este color me gusta.',
+	fSlide: 'De seguro ya estas aquí, bueno bueno, ahora tienes que encontrar donde esta la frase. Si lo encuentras a la primera tienes buena suerte y no también :v ',
+	fSlideUp: 'Panded tendrá una versión de inteligencia artificial más adelante.',
+	fFlipX: 'Caminar por la orilla del mar descalzo y es lo mejor',
+	fZoom: 'La vida es un '
 };
 
 // Controls

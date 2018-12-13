@@ -69,17 +69,7 @@
 
             var speed = 80;
             var delay = titulo1.textContent.length * speed + speed;
-            setTimeout(() => {
-                let btnSiguiente = d.querySelector('#btnSiguiente')
-                btnSiguiente.innerHTML = `<button id="btnSiguiente" class="ctrl-standard typ-subhed fx-bubbleDown animated fadeInLeft">Sigamos</button>`
-                btnSiguiente.children[0].addEventListener('click', () => {
-                    setTimeout(() => {
-                        window.location.replace("/vue")
-                        
-                    }, 1000);
-                })
-
-            }, 2000);
+            
 
             
 
@@ -92,7 +82,17 @@
                 setTimeout(() => {
                      $('#segundoParrafo').css('display', 'inline-block');
                     typeEffect($('#segundoParrafo'), speed);
+                    setTimeout(() => {
+                        let btnSiguiente = d.querySelector('#btnSiguiente')
+                        btnSiguiente.innerHTML = `<button id="btnSiguiente" class="ctrl-standard typ-subhed fx-bubbleDown animated fadeInLeft">Sigamos</button>`
+                        btnSiguiente.children[0].addEventListener('click', () => {
+                            setTimeout(() => {
+                                window.location.replace("/vue")
 
+                            }, 1000);
+                        })
+
+                    }, 20000);
                     
 
                 }, delay + 2000 + (primerParrafo.textContent.length*speed + speed) + 11000);
